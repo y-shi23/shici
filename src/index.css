@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: 'huiwen';
+  src: url('https://cloud.tsinghua.edu.cn/f/ae1f7cf11f2542b09a65/?dl=1') format('opentype');
+}
+
+@font-face {
   font-family: 'LXGWWenKaiMonoLite';
   src: url('https://cdn.jsdelivr.net/gh/y-shi23/CDN/fonts/LXGWWenKaiMonoLite-Regular.ttf') format('truetype');
 }
@@ -16,6 +21,19 @@
   --button-color: #3B82F6;
   --card-color: #FFFFFF;
   --block-color: #F3F4F6;
+
+  font-family: 'LXGWWenKaiMonoLite', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -39,21 +57,6 @@ body {
 .text-gray-800,
 .text-gray-900 {
   color: var(--text-color);
-}
-
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {

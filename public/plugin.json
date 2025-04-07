@@ -3,9 +3,9 @@
   "logo": "logo.png",
   "features": [
     {
-      "code": "md",
-      "explain": "微信Markdown编辑器",
-      "cmds": ["wechat","wx","markdown", "md"]
+      "code": "sc",
+      "explain": "诗苑",
+      "cmds": ["诗","词","sc","诗苑"]
     }
   ],
   "pluginSetting": {

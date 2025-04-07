@@ -20,8 +20,14 @@ const NoteModal = ({ isOpen, onClose, poem, onNotesUpdate }: NoteModalProps) => 
 
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = 'hidden'
       const savedNotes = JSON.parse(utools.dbStorage.getItem('poemNotes') || '[]')
       setNotes(savedNotes.filter((n: Note) => n.poemId === poem.title))
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+    return () => {
+      document.body.style.overflow = 'auto'
     }
   }, [isOpen, poem.title])
 
@@ -53,8 +59,9 @@ const NoteModal = ({ isOpen, onClose, poem, onNotesUpdate }: NoteModalProps) => 
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-card rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-black/50" onClick={onClose} />
+      <div className="bg-card rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto relative z-10">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-2xl font-semibold text-gray-900">笔记管理</h3>
@@ -78,9 +85,9 @@ const NoteModal = ({ isOpen, onClose, poem, onNotesUpdate }: NoteModalProps) => 
             <textarea
               value={note}
               onChange={(e) => setNote(e.target.value)}
-              placeholder="写下你的笔记..."
+              placeholder="忧劳可以兴国，逸豫可以亡身"
               className="w-full px-4 py-3 border border-button/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-button focus:border-transparent text-lg bg-block"
-              rows={4}
+              rows={1}
             />
             <div className="flex justify-end mt-4">
               <button

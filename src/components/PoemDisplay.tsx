@@ -10,9 +10,10 @@ interface Note {
 
 interface PoemDisplayProps {
   poem: Poem
+  onBack: () => void
 }
 
-const PoemDisplay = ({ poem }: PoemDisplayProps) => {
+const PoemDisplay = ({ poem, onBack }: PoemDisplayProps) => {
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false)
   const [notes, setNotes] = useState<Note[]>([])
   const [notesUpdateKey, setNotesUpdateKey] = useState(0)
@@ -30,6 +31,17 @@ const PoemDisplay = ({ poem }: PoemDisplayProps) => {
     <div className="space-y-8">
       {/* 标题和原文部分 */}
       <div className="bg-block rounded-lg shadow-md p-6 relative">
+        <div className="absolute top-4 left-4">
+          <button
+            onClick={onBack}
+            className="bg-button text-white p-2 rounded-lg hover:bg-button/90 transition-colors"
+            title="返回搜索"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+          </button>
+        </div>
         <div className="absolute top-4 right-4">
           <button
             onClick={() => setIsNoteModalOpen(true)}
@@ -42,11 +54,11 @@ const PoemDisplay = ({ poem }: PoemDisplayProps) => {
           </button>
         </div>
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">{poem.title}</h2>
-          <p className="text-xl text-gray-600">{poem.dynasty} · {poem.author}</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 font-[huiwen]">{poem.title}</h2>
+          <p className="text-xl text-gray-600 font-[huiwen]">{poem.dynasty} · {poem.author}</p>
         </div>
         <div className="border-t border-button/20 pt-6">
-          <div className="text-2xl text-gray-800 whitespace-pre-line leading-relaxed text-center">
+          <div className="text-2xl text-gray-800 whitespace-pre-line leading-relaxed text-center font-[huiwen]">
             {poem.content}
           </div>
         </div>
@@ -55,7 +67,7 @@ const PoemDisplay = ({ poem }: PoemDisplayProps) => {
       {/* 赏析部分 */}
       {poem.appreciation && (
         <div className="bg-block rounded-lg shadow-md p-6">
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">诗词鉴赏</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">鉴赏</h3>
           <div className="border-t border-button/20 pt-6">
             <div className="text-lg text-gray-700 leading-relaxed">
               {poem.appreciation}

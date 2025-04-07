@@ -43,24 +43,15 @@ function App() {
 
         {!selectedPoem ? (
           <div className="flex flex-col items-center justify-center min-h-[60vh]">
-            <h1 className="text-5xl font-bold text-gray-900 mb-12">诗词查询</h1>
+            <h1 className="text-5xl font-bold text-gray-900 mb-12">诗苑</h1>
             <div className="w-full max-w-2xl">
               <SearchBar poems={poems} onSelect={setSelectedPoem} />
             </div>
           </div>
         ) : (
           <div className="flex flex-col items-center">
-            <button
-              onClick={() => setSelectedPoem(null)}
-              className="mb-8 bg-button text-white px-4 py-2 rounded-lg hover:bg-button/90 flex items-center"
-            >
-              <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              返回搜索
-            </button>
             <div className="w-full max-w-2xl">
-              <PoemDisplay poem={selectedPoem} />
+              <PoemDisplay poem={selectedPoem} onBack={() => setSelectedPoem(null)} />
             </div>
           </div>
         )}
