@@ -21,7 +21,7 @@ export const themes: Theme[] = [
       accent: '#93C5FD',
       background: '#FFFFFF',
       text: '#1F2937',
-      button: '#3B82F6',
+      button: '#4F5358FF',
       card: '#FFFFFF',
       block: '#F3F4F6'
     }
