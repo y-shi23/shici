@@ -14,12 +14,7 @@ export async function getPoems(): Promise<Poem[]> {
   }
 
   try {
-    const response = await fetch('https://cdn.jsdelivr.net/gh/y-shi23/CDN/json/poem.json', {
-      cache: 'no-cache',
-      headers: {
-        'Cache-Control': 'no-cache'
-      }
-    });
+    const response = await fetch('https://cdn.jsdelivr.net/gh/y-shi23/CDN/json/poem.json');
     if (!response.ok) {
       throw new Error('Failed to fetch poems');
     }
