@@ -7,15 +7,16 @@ def process_json(input_file, output_file):
         with open(input_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
         
-        # 处理每个字典，按指定顺序排列字段
+        # 处理每个字典
         processed_data = []
         for item in data:
-            # 使用 OrderedDict 确保字段顺序
+            # 创建一个 OrderedDict，按指定顺序添加字段
             new_item = OrderedDict()
             new_item['title'] = item['title']
-            new_item['author'] = ""  # 如果没有 author，可设置为空
-            new_item['dynasty'] = ""  # 如果没有 dynasty，可设置为空
-            new_item['content'] = '\n'.join(item['content']) + '\n'  # 假设 content 是列表
+            new_item['author'] = ""           # 默认值为空字符串
+            new_item['dynasty'] = ""          # 默认值为空字符串
+            new_item['content'] = '\n'.join(item['content']) + '\n'
+            new_item['appreciation'] = ""      # 在 content 后添加 appreciation，默认值为空字符串
             processed_data.append(new_item)
         
         # 将处理后的数据写入输出文件
@@ -32,6 +33,6 @@ def process_json(input_file, output_file):
         print(f"发生错误：{e}")
 
 if __name__ == "__main__":
-    input_file = 'E:\\development\\shici\\python\\input.json'  # 输入文件路径
-    output_file = 'E:\\development\\shici\\python\\output.json'  # 输出文件路径
+    input_file = 'D:\\development\\shici\\python\\input.json'  # 输入文件路径
+    output_file = 'D:\\development\\shici\\python\\output.json'  # 输出文件路径
     process_json(input_file, output_file)

@@ -5,11 +5,13 @@
 @font-face {
   font-family: 'huiwen';
   src: url('https://cdn.jsdelivr.net/gh/y-shi23/CDN/fonts/huiwen-i.otf') format('opentype');
+  font-display: block;
 }
 
 @font-face {
   font-family: 'LXGWWenKaiMonoLite';
   src: url('https://cdn.jsdelivr.net/gh/y-shi23/CDN/fonts/LXGWWenKaiMonoLite-Regular.ttf') format('truetype');
+  font-display: block;
 }
 
 :root {
